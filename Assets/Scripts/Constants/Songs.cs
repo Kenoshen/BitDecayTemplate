@@ -5,7 +5,7 @@ public class Songs
         // All songs in FMOD Studio should be located inside of a folder titled "Music" located at the root of the project
         public enum SongName
         {
-                ExampleSong = 428355750,
+                AnotherDay = 428355750,
         }
 }
         
