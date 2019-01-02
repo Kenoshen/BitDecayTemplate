@@ -10,8 +10,14 @@ Library/
 Builds/
 
 // Generated code
-Assets/Scripts/Constants/generated/
-Assets/Scripts/Constants/generated.meta
+Assets/Scripts/Constants/Scenes.cs
+Assets/Scripts/Constants/Scenes.cs.meta
+Assets/Scripts/Constants/SFX.cs
+Assets/Scripts/Constants/SFX.cs.meta
+Assets/Scripts/Constants/Songs.cs
+Assets/Scripts/Constants/Songs.cs.meta
+Assets/Scripts/Constants/Tags.cs
+Assets/Scripts/Constants/Tags.cs.meta
 
 // FMOD
 Assets/FMODStudioCache.asset
