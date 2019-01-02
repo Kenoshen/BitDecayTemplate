@@ -36,7 +36,16 @@ public class OnSaveScripts : UnityEditor.AssetModificationProcessor
 
     private static void AddCurrentSceneToBuildIfNotPresent(string scenePath, string sceneName)
     {
-        var original = EditorBuildSettings.scenes; 
+        var original = EditorBuildSettings.scenes;
+
+        foreach (EditorBuildSettingsScene editorBuildSettingsScene in original)
+        {
+            if (editorBuildSettingsScene.path.Contains(sceneName))
+            {
+                return;
+            }
+        }
+        
         var newSettings = new EditorBuildSettingsScene[original.Length + 1]; 
         System.Array.Copy(original, newSettings, original.Length); 
         var sceneToAdd = new EditorBuildSettingsScene(Path.Combine(scenePath, sceneName) + ".unity", true); 
