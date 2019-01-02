@@ -11,6 +11,7 @@ Builds/
 
 // Generated code
 Assets/Scripts/Constants/generated/
+Assets/Scripts/Constants/generated.meta
 
 // FMOD
 Assets/FMODStudioCache.asset
