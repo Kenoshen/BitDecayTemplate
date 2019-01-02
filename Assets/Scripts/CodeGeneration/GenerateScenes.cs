@@ -11,7 +11,7 @@ public class GenerateScenes : MonoBehaviour
     private const string OutputPath = "Assets/Scripts/Constants/Scenes.cs";
     
     [MenuItem("Tools/Generate Scenes")]
-    public static void CreateTags()
+    public static void CreateScenes()
     {
         string classDefinition = string.Empty;
 
@@ -69,6 +69,5 @@ public class GenerateScenes : MonoBehaviour
         classDefinition += "}\n";
         
         File.WriteAllText(OutputPath, classDefinition);
-        EditorUtility.DisplayDialog("Scene generation", "Scenes generated!", "Done");
     }
 }
