@@ -9,6 +9,9 @@ obj/
 Library/
 Builds/
 
+// Generated code
+Assets/Scripts/Constants/generated/
+
 // FMOD
 Assets/FMODStudioCache.asset
 Assets/StreamingAssets/*.bank
