@@ -8,18 +8,11 @@ using UnityEngine;
 
 public class GenerateScenes : MonoBehaviour
 {
-    private const string DontDestroyOnLoadScene = "DontDestroyOnLoad";
+    private const string OutputPath = "Assets/Scripts/Constants/Scenes.cs";
     
     [MenuItem("Tools/Generate Scenes")]
     public static void CreateTags()
     {
-        string outputPath = EditorUtility.SaveFilePanelInProject(
-            title: "Save Location",
-            defaultName: "Scenes",
-            extension: "cs",
-            message: "Where do you want to save the scene names?");
-        
-        
         string classDefinition = string.Empty;
 
         classDefinition += "using System;\n";
@@ -34,7 +27,7 @@ public class GenerateScenes : MonoBehaviour
             sceneNamesList.Add(Path.GetFileNameWithoutExtension( UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex( i )));
         }
 
-        classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", DontDestroyOnLoadScene);
+        classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", "DontDestroyOnLoad");
         foreach (string sceneName in sceneNamesList)
         {
             classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", sceneName);
@@ -75,6 +68,7 @@ public class GenerateScenes : MonoBehaviour
         classDefinition += "\t}\n";
         classDefinition += "}\n";
         
-        File.WriteAllText(outputPath, classDefinition);
+        File.WriteAllText(OutputPath, classDefinition);
+        EditorUtility.DisplayDialog("Scene generation", "Scenes generated!", "Done");
     }
 }

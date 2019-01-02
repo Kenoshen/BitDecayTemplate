@@ -7,20 +7,16 @@ using UnityEngine;
 
 public class GenerateTags : MonoBehaviour
 {
+    private const string OutputPath = "Assets/Scripts/Constants/Tags.cs";
+    
     [MenuItem("Tools/Generate Tags")]
     public static void CreateTags()
     {
-        string outputPath = EditorUtility.SaveFilePanelInProject(
-            title: "Save Location",
-            defaultName: "Tags",
-            extension: "cs",
-            message: "Where do you want to save the tags?");
-        
         string classDefinition = string.Empty;
 
-        classDefinition += "public class Tags" + Environment.NewLine;
+        classDefinition += "public class Tags\n";
 
-        classDefinition += "{" + Environment.NewLine;
+        classDefinition += "{\n";
 
 
         List<string> tags = new List<string>(InternalEditorUtility.tags);
@@ -29,8 +25,8 @@ public class GenerateTags : MonoBehaviour
             classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", tag);
         }
 
-        classDefinition += "}" + Environment.NewLine;
+        classDefinition += "}\n";
         
-        File.WriteAllText(outputPath, classDefinition);
+        File.WriteAllText(OutputPath, classDefinition);
     }
 }

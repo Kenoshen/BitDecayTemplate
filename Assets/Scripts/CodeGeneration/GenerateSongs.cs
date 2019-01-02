@@ -5,22 +5,12 @@ using UnityEngine;
 
 public class GenerateSongs : MonoBehaviour
 {
-    private const string DontDestroyOnLoadScene = "DontDestroyOnLoad";
+    private const string InputConfigPath = "Assets/Scripts/Configs/Songs.json";
+    private const string OutputPath = "Assets/Scripts/Constants/Songs.cs";
     
     [MenuItem("Tools/Generate Songs")]
     public static void CreateSongs()
     {
-        string configPath = EditorUtility.OpenFilePanel(
-            title: "Songs.json Location",
-            extension: "json",
-            directory: "Assets");
-        
-        string outputPath = EditorUtility.SaveFilePanelInProject(
-            title: "Save Location",
-            defaultName: "Songs",
-            extension: "cs",
-            message: "Where do you want to save the song names?");
-        
         string classDefinition = string.Empty;
         
         classDefinition += "public class Songs\n";
@@ -30,7 +20,7 @@ public class GenerateSongs : MonoBehaviour
         classDefinition += "\tpublic enum SongName\n";
         classDefinition += "\t{\n";
         
-        SongList songList = SongList.LoadSongsList(configPath);
+        SongList songList = SongList.LoadSongsList(InputConfigPath);
         
         foreach (string songName in songList.Songs)
         {
@@ -46,6 +36,6 @@ public class GenerateSongs : MonoBehaviour
         classDefinition += "\t}\n";
         classDefinition += "}\n";
         
-        File.WriteAllText(outputPath, classDefinition);
+        File.WriteAllText(OutputPath, classDefinition);
     }
 }

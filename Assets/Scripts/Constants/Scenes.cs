@@ -2,29 +2,29 @@ using System;
 public class Scenes
 {
 	public const string DontDestroyOnLoad = "DontDestroyOnLoad";
-	public const string SampleScene = "SampleScene";
-	public const string SceneOne = "SceneOne";
-	public const string SceneTwo = "SceneTwo";
+	public const string TitleScreen = "TitleScreen";
 	public const string BitdecaySplash = "BitdecaySplash";
+	public const string GameJamSplash = "GameJamSplash";
+	public const string Credits = "Credits";
 	public enum SceneEnum
 	{
-		SampleScene = 80,
-		SceneOne = 16,
-		SceneTwo = 40,
+		TitleScreen = 98,
 		BitdecaySplash = 144,
+		GameJamSplash = 253,
+		Credits = 206,
 	}
 	public static string GetSceneNameFromEnum(SceneEnum sceneEnum)
 	{
 		switch (sceneEnum)
 		{
-			case SceneEnum.SampleScene:
-				return SampleScene;
-			case SceneEnum.SceneOne:
-				return SceneOne;
-			case SceneEnum.SceneTwo:
-				return SceneTwo;
+			case SceneEnum.TitleScreen:
+				return TitleScreen;
 			case SceneEnum.BitdecaySplash:
 				return BitdecaySplash;
+			case SceneEnum.GameJamSplash:
+				return GameJamSplash;
+			case SceneEnum.Credits:
+				return Credits;
 			default:
 				throw new Exception("Unable to resolve scene name for: " + sceneEnum);
 		}

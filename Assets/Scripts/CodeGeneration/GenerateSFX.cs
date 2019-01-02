@@ -7,36 +7,28 @@ using UnityEngine;
 
 public class GenerateSFX : MonoBehaviour
 {
+    private const string InputConfigPath = "Assets/Scripts/Configs/SFX.json";
+    private const string OutputPath = "Assets/Scripts/Constants/SFX.cs";
+    
     [MenuItem("Tools/Generate SFX")]
     public static void CreateSFX()
     {
-        string configPath = EditorUtility.OpenFilePanel(
-            title: "SFX.json Location",
-            extension: "json",
-            directory: "Assets");
-        
-        string outputPath = EditorUtility.SaveFilePanelInProject(
-            title: "Save Location",
-            defaultName: "SFX",
-            extension: "cs",
-            message: "Where do you want to save the sfx?");
-        
         string classDefinition = string.Empty;
 
-        classDefinition += "public class SFX" + Environment.NewLine;
+        classDefinition += "public class SFX\n";
 
-        classDefinition += "{" + Environment.NewLine;
+        classDefinition += "{\n";
 
 
-        SFXList sfxList = SFXList.LoadSFXList(configPath);
+        SFXList sfxList = SFXList.LoadSFXList(InputConfigPath);
         
         foreach (string sound in sfxList.SFX)
         {
             classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", sound);
         }
 
-        classDefinition += "}" + Environment.NewLine;
+        classDefinition += "}\n";
         
-        File.WriteAllText(outputPath, classDefinition);
+        File.WriteAllText(OutputPath, classDefinition);
     }
 }

@@ -12,7 +12,7 @@ public class DelayedSceneTransition : MonoBehaviour
         DelayInSeconds -= Time.deltaTime;
         if (DelayInSeconds <= 0)
         {
-            FadeToBlack.Instance.FadeOut(2f, () => SceneManager.LoadScene(Scene.ToString()));
+            FadeToBlack.Instance.FadeOut(1f, () => SceneManager.LoadScene(Scene.ToString()));
         }
     }
 }
