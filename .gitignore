@@ -8,9 +8,22 @@ Temp/
 obj/
 Library/
 Builds/
+Logs/
 
 // FMOD
-Assets/FMODStudioCache.asset
 Assets/StreamingAssets/*.bank
 fmod.log
 fmod_editor.log
+*.bank.meta
+Assets/FMODStudioCache.asset
+Assets/Resources/FMODStudioSettings.asset
+
+// vscode
+.vscode
+
+// generated code
+Assets/Scripts/Constants/Scenes.cs
+
+// IDE Files
+Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll
+
