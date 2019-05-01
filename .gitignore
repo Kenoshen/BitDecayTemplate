@@ -16,7 +16,9 @@ fmod.log
 fmod_editor.log
 *.bank.meta
 Assets/FMODStudioCache.asset
+Assets/FMODStudioCache.asset.meta
 Assets/Resources/FMODStudioSettings.asset
+Assets/Resources/FMODStudioSettings.asset.meta
 
 // vscode
 .vscode
