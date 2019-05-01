@@ -4,6 +4,8 @@ Assembly-CSharp-Editor-firstpass.csproj
 Assembly-CSharp.csproj
 Assembly-CSharp-Editor.csproj
 Assembly-CSharp-firstpass.csproj
+*.sln
+*.sln.DotSettings.user
 Temp/
 obj/
 Library/
