@@ -27,6 +27,9 @@ public class GenerateScenes : MonoBehaviour
             sceneNamesList.Add(Path.GetFileNameWithoutExtension( UnityEngine.SceneManagement.SceneUtility.GetScenePathByBuildIndex( i )));
         }
 
+        // filter out any debug scenes
+        sceneNamesList = sceneNamesList.FindAll(s => !s.Contains("Debug"));
+
         classDefinition += string.Format("\tpublic const string {0} = \"{0}\";\n", "DontDestroyOnLoad");
         foreach (string sceneName in sceneNamesList)
         {
